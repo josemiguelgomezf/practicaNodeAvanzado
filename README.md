@@ -1,4 +1,10 @@
-# Backend con Nodejs y MongoDB
+# Backend Avanzadp con Nodejs y MongoDB
+
+## Información de como arrancar la app
+
+npm install
+npm run dev
+localhost 3000
 
 ## Información de como arrancar un servidor de MongoDB
 
