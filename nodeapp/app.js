@@ -5,10 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const { isAPIRequest } = require('./lib/utils');
 const swaggerMiddleware = require('./lib/swaggerMiddleware');
+const i18n = require('./lib/i18nConfigure')
 
 var app = express();
 
 require('./lib/connectMongoose');
+
+//Setup de i18n
+app.use(i18n.init);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
