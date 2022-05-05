@@ -11,6 +11,7 @@ mongoose.connection.once('open', () => {
   console.log('Conectado a MongoDB en la BD:', mongoose.connection.name);
 });
 
+console.log(process.env)
 mongoose.connect('mongodb://localhost/cursonode');
 
 // opcional
