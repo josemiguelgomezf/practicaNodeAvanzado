@@ -9,6 +9,7 @@ directory: path.join(__dirname, '..', 'locales'),
 defaultLocale: 'en',
 autoReload: true, //watch for changes in JSON and reload 
 syncFiles: true,
+cookie: 'nodeapp-locale'
 });
 
 //para utilizar en scripts

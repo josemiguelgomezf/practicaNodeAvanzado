@@ -1,29 +1,32 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+
 
     <% include header.ejs %>
 
-    <%= ejemplo + '22' %>
+    <header class="masthead">
+      <div class="container px-5">
+          <div class="row gx-5 align-items-center">
+              <div class="col-lg-6">
+                  <!-- Mashead text and app badges-->
+                  <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                    <%= ejemplo + '22' %>
 
-    <h2><%=__('Ejemplo de condicionales') %></h2>
-    <% if (condicion.esPar) { %>
-      <p>El segundo actual <%= condicion.segundo %> es par</p>
-    <% } else { %>
-      <p>El segundo actual <%= condicion.segundo %> es impar</p>
-    <% } %>
-
-    <h2>Ejemplo de bucle</h2>
-
-    <% usuarios.forEach( usuario => { %>
-      <li>
-        El usuario <%= usuario.nombre %> tiene <%= usuario.edad %>
-      </li>
-    <% }) %>
-
-  </body>
-</html>
+                    <h2><%=__('Example conditionals') %></h2>
+                    <% if (condicion.esPar) { %>
+                      <p>El segundo actual <%= condicion.segundo %> es par</p>
+                    <% } else { %>
+                      <p>El segundo actual <%= condicion.segundo %> es impar</p>
+                    <% } %>
+                
+                    <h2>Ejemplo de bucle</h2>
+                
+                    <% usuarios.forEach( usuario => { %>
+                      <li>
+                        El usuario <%= usuario.nombre %> tiene <%= usuario.edad %>
+                      </li>
+                    <% }) %>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+<% include footer.ejs %>

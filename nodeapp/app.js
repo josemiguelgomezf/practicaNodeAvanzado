@@ -11,9 +11,6 @@ var app = express();
 
 require('./lib/connectMongoose');
 
-//Setup de i18n
-app.use(i18n.init);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -36,11 +33,15 @@ app.use('/api-docs', swaggerMiddleware);
  */
 app.use('/api/agentes', require('./routes/api/agentes'));
 
+//Setup de i18n
+app.use(i18n.init);
+
 /**
  * Rutas de mi website
  */
-app.use('/',      require('./routes/index'));
-app.use('/users', require('./routes/users'));
+app.use('/',          require('./routes/index'));
+app.use('/features',  require('./routes/features'));
+app.use('/change-locale',  require('./routes/change-locale'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
