@@ -1,5 +1,11 @@
 {
 	"Features": "Features",
 	"Example conditionals": "Example conditionals",
-	"Login": "Login"
+	"Login": "Login",
+	"Submit": "Submit",
+	"Email address": "Email address",
+	"Password": "Password",
+	"Invalid credentials": "Invalid credentials",
+	"We will never share your email with anyone else.": "We will never share your email with anyone else.",
+	"Private Zone": "Private Zone"
 }

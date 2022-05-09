@@ -7,6 +7,7 @@ const { isAPIRequest } = require('./lib/utils');
 const swaggerMiddleware = require('./lib/swaggerMiddleware');
 const i18n = require('./lib/i18nConfigure');
 const LoginController = require('./controllers/loginController');
+const PrivadoController = require('./controllers/privadoController');
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use('/api/agentes', require('./routes/api/agentes'));
 app.use(i18n.init);
 
 const loginController = new LoginController();
+const privadoController = new PrivadoController();
 
 /**
  * Rutas de mi website
@@ -47,6 +49,8 @@ app.use('/',          require('./routes/index'));
 app.use('/features',  require('./routes/features'));
 app.use('/change-locale',  require('./routes/change-locale'));
 app.get('/login', loginController.index);
+app.post('/login', loginController.post);
+app.get('/privado', privadoController.index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

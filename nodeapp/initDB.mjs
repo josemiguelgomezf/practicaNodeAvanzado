@@ -43,7 +43,16 @@ async function initUsuarios() {
   const usuarioData = JSON.parse(data);
 
   // crear usuarios iniciales
-  const usuarios = await Usuario.insertMany(usuarioData);
+  const usuarios = await Usuario.insertMany([
+    {
+      "email": "admin@example.com",
+      "password": await Usuario.schema.hashPassword('1234')
+    },
+    {
+      "email": "pepe@gmail.com",
+      "password": await Usuario.schema.hashPassword('1234')
+    }
+  ]);
   console.log(`Creados ${usuarios.length} usuarios.`);
 }
 
