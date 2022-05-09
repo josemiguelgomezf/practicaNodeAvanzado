@@ -10,6 +10,7 @@ import dbConnection from "./lib/connectMongoose.js";
 
 // cargar modelos
 import Agente from './models/Agente.js';
+import Usuario from './models/Usuario.js';
 
 dbConnection.once('open', () => {
   main().catch(err => console.log('Hubo un error', err));
@@ -26,8 +27,24 @@ async function main() {
   // inicializar agentes
   await initAgentes();
 
+  // inicializar usuarios
+  await initUsuarios();
+
   // desconectar la base de datos
   dbConnection.close();
+}
+
+async function initUsuarios() {
+  // borrar todos los documentos de usuarios que haya en la colección
+  const deleted = await Usuario.deleteMany();
+  console.log(`Eliminados ${deleted.deletedCount} usuarios.`);
+
+  const data = await fsPromise.readFile('initDB.usuarios.json', 'utf-8');
+  const usuarioData = JSON.parse(data);
+
+  // crear usuarios iniciales
+  const usuarios = await Usuario.insertMany(usuarioData);
+  console.log(`Creados ${usuarios.length} usuarios.`);
 }
 
 async function initAgentes() {

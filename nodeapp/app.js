@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const { isAPIRequest } = require('./lib/utils');
 const swaggerMiddleware = require('./lib/swaggerMiddleware');
-const i18n = require('./lib/i18nConfigure')
+const i18n = require('./lib/i18nConfigure');
+const LoginController = require('./controllers/loginController');
 
 var app = express();
 
@@ -13,7 +14,8 @@ require('./lib/connectMongoose');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
+app.engine('html', require('ejs').__express);
 
 app.locals.title = 'NodeApp';
 
@@ -36,12 +38,15 @@ app.use('/api/agentes', require('./routes/api/agentes'));
 //Setup de i18n
 app.use(i18n.init);
 
+const loginController = new LoginController();
+
 /**
  * Rutas de mi website
  */
 app.use('/',          require('./routes/index'));
 app.use('/features',  require('./routes/features'));
 app.use('/change-locale',  require('./routes/change-locale'));
+app.get('/login', loginController.index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
