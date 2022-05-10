@@ -7,5 +7,7 @@
 	"Password": "Contraseña",
 	"Invalid credentials": "Datos incorrectos.",
 	"We will never share your email with anyone else.": "Nunca compartas tu email con nadie.",
-	"Private Zone": "Private Zone"
+	"Private Zone": "Private Zone",
+	"Logout": "Logout",
+	"Private": "Private"
 }

@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 // definir un esquema
 const usuarioSchema = mongoose.Schema({
   email: { type: String, unique: true },
-  password: String,
+  password: { type: String } 
   // infoDeInteres: mongoose.Schema.Types.Mixed
 }, {
   // en caso de que queramos conectar este modelo con una colección con otro nombre
@@ -18,6 +18,12 @@ usuarioSchema.methods.saluda = function() {
   console.log('Hola, mi email es: ', this.email)
 }
 
+// creamos un método para desencriptar contraseña
+usuarioSchema.methods.comparePassword = function(passwordEnClaro) {
+  return bcrypt.compare(passwordEnClaro, this.password);
+}
+
+//statics porque no es una instancia de un usuario
 usuarioSchema.statics.hashPassword = function(passwordEnClaro) {
   return bcrypt.hash(passwordEnClaro, 7)
 }
