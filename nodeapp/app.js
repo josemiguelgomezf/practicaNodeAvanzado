@@ -12,7 +12,9 @@ const session = require('express-session');
 const sessionAuth = require('./lib/sessionAuth');
 const MongoStore = require('connect-mongo');
 const config = require('./config.js');
-
+const loginController = new LoginController();
+const privadoController = new PrivadoController();
+const jwtAuth = require('./lib/jwtAuth.js');
 var app = express();
 
 require('./lib/connectMongoose');
@@ -38,13 +40,13 @@ app.use('/api-docs', swaggerMiddleware);
 /**
  * Rutas de mi API
  */
-app.use('/api/agentes', require('./routes/api/agentes'));
+app.use('/api/agentes', jwtAuth, require('./routes/api/agentes'));
+app.post('/api/login', loginController.postJWT);
 
 //Setup de i18n
 app.use(i18n.init);
 
-const loginController = new LoginController();
-const privadoController = new PrivadoController();
+
 
 //Setup session website
 app.use(session({
