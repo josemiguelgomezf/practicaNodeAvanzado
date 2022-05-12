@@ -2,7 +2,9 @@
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const nodeMailer = require('nodemailer');
+const emailTransportConfigure = require('../lib/emailTransportConfigure');
+const config = require('../config');
+const nodemailer = require('nodemailer')
 
 // definir un esquema
 const usuarioSchema = mongoose.Schema({
@@ -26,25 +28,20 @@ usuarioSchema.methods.comparePassword = function(passwordEnClaro) {
 
 // creamos un método para enviar un email al usuario
 usuarioSchema.methods.enviarEmail = async function(asunt, body) {
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
-    },
+  //crear el transport
+  const transport = await emailTransportConfigure();
+  //enviar el email
+  const result = await transport.sendMail({
+    from: config.EMAILFROM,
+    to: this.email,
+    subject: asunt,
+    html: body
   });
 
-  // send mail with defined transport object
-  let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
-    to: "josemiguel.gmezfdez@gmail.com", // list of receivers
-    subject: asunt, // Subject line
-    text: body, // plain text body
-    html: `<b>${asunt}</b>`, // html body
-  });
+  console.log("Message sent: %s", result.messageId);
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(result));
+
+  return result;
 }
 
 //statics porque no es una instancia de un usuario

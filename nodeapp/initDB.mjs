@@ -49,7 +49,7 @@ async function initUsuarios() {
       "password": await Usuario.hashPassword('1234')
     },
     {
-      "email": "pepe@gmail.com",
+      "email": "josemiguel.gmezfdez@gmail.com",
       "password": await Usuario.hashPassword('1234')
     }
   ]);

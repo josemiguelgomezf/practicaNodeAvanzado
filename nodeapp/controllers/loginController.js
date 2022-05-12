@@ -27,7 +27,7 @@ async post(req, res, next){
         };
         
         //enviar un email al usuario
-        const result = await usuario.enviarEmail('Bienvenido', 'Bienviendio a NodeApp')
+        usuario.enviarEmail('Bienvenido', 'Bienviendio a NodeApp')
 
         //redirigir al usuario
         res.redirect('/privado'); 
