@@ -3,6 +3,7 @@
 const Usuario = require('../models/Usuario.js');
 const config = require('../config.js');
 const jwt = require('jsonwebtoken');
+
 class LoginController {
 index(req, res, next){
     res.locals.error='';
