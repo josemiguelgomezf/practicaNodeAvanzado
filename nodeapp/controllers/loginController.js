@@ -45,6 +45,10 @@ async postJWT(req, res, next){
     
         //buscar usuario
         const usuario = await Usuario.findOne({email});
+        if(!usuario){
+            res.json({error: 'invalid user'})
+            return
+        }
         //si no encuentro o pass dist
         if(!usuario || !(await usuario.comparePassword(password))){
             res.json({error: 'invalid credentials'})
@@ -58,6 +62,7 @@ async postJWT(req, res, next){
     }
     //devolver token general
     res.json({token: jwtToken});
+    
 });
 
         

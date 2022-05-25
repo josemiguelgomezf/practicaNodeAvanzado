@@ -3,6 +3,7 @@
 const express = require('express');
 const createError = require('http-errors');
 const Agente = require('../../models/Agente');
+const upload = require('../../lib/multerConfig');
 
 const router = express.Router();
 
@@ -19,6 +20,7 @@ router.get('/', async (req, res, next) => {
   try {
     const name = req.query.name;
     const age = req.query.age;
+    const foto = req.query.foto;
     const skip = req.query.skip;
     const limit = req.query.limit;
     const select = req.query.select; // campos que quiero
@@ -31,7 +33,11 @@ router.get('/', async (req, res, next) => {
     }
 
     if (age) {
-      filtros.age = age
+      filtros.age = age;
+    }
+
+    if (foto) {
+      filtros.foto = foto;
     }
 
     const agentes = await Agente.lista(filtros, skip, limit, select, sort);
@@ -66,12 +72,15 @@ router.get('/:id', async (req, res, next) => {
 
 // POST /api/agentes
 // Crea un nuevo agente
-router.post('/', async (req, res, next) => {
+router.post('/', upload.single('foto'), async (req, res, next) => {
   try {
-    const agenteData = req.body;
+    const agente = new Agente(req.body);
 
-    // creo un objeto de agente EN MEMORIA
-    const agente = new Agente(agenteData);
+    // save image
+    await agente.setFoto({
+      path: req.file.path,
+      originalName: req.file.originalname
+    })
 
     const agenteGuardado = await agente.save();
 
