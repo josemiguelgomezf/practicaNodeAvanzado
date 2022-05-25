@@ -1,6 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
+// Importante cifrar las contraseñas con bcrypt
 const bcrypt = require('bcrypt');
 const emailTransportConfigure = require('../lib/emailTransportConfigure');
 const config = require('../config');
