@@ -1,6 +1,9 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const fs = require('fs-extra')
+const path2 = require('path');
+const fsPromises = require('fs').promises
 
 // definir un esquema
 const agenteSchema = mongoose.Schema({
@@ -28,14 +31,15 @@ agenteSchema.methods.saluda = function() {
   console.log('Hola, soy', this.name)
 }
 
-agenteSchema.methods.setFoto = async function ({ path, originalname: originalName }) {
+agenteSchema.methods.setFoto = async function ({ path, originalName }) {
+  console.log(originalName)
   if (!originalName) return
-
   // copiar el fichero desde la carpeta uploads a public/images/anuncios
   // usando en nombre original del producto
   // SUGERENCIA: en un proyecto real, valorar si quereis poner el _id del usuario (this._id)
   // para diferenciar imagenes con el mismo nombre de distintos usuarios
-  const imagePublicPath = path.join(__dirname, '../public/images/anuncios', originalName)
+
+  const imagePublicPath = path2.join(__dirname, '../public/images/anuncios', originalName)
   await fs.copy(path, imagePublicPath)
 
   this.foto = originalName
