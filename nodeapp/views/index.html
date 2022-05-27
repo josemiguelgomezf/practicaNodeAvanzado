@@ -1,31 +1,21 @@
-
-
     <% include header.html %>
-
     <header class="masthead">
       <div class="container px-5">
           <div class="row gx-5 align-items-center">
               <div class="col-lg-6">
                   <!-- Mashead text and app badges-->
                   <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                    <%= ejemplo + '22' %>
-
-                    <h2><%=__('Example conditionals') %></h2>
-                    <% if (condicion.esPar) { %>
-                      <p>El segundo actual <%= condicion.segundo %> es par</p>
-                    <% } else { %>
-                      <p>El segundo actual <%= condicion.segundo %> es impar</p>
-                    <% } %>
-                
-                    <h2>Ejemplo de bucle</h2>
-                
-                    <% usuarios.forEach( usuario => { %>
-                      <li>
-                        El usuario <%= usuario.nombre %> tiene <%= usuario.edad %>
-                      </li>
-                    <% }) %>
+                    <h2 class="display-4 lh-1 mb-4"><%=__('What are we?') %></h2>
+                    <h3><%=__('Brand is a Spanish company founded in 2014 used to exchange used goods, similar to Craigslist as a classified listings website. The marketplace primarily is accessed via mobile app.') %></h3>
+                    </br>
+                    <p class="lead fw-normal text-muted mb-5 mb-lg-0"><%=__('In 2014 it signed a commercial agreement with Atresmedia. In 2015 it was cited as the startup company with the highest revenues in Spain with $1b of transactions completed using the app.') %></p>
+                    <p class="lead fw-normal text-muted mb-5 mb-lg-0"><%=__('In May 2016, the company was merged with Letgo but continues to trade under the Brand brand.') %></p>
+                    <p class="lead fw-normal text-muted mb-5 mb-lg-0"><%=__('Large venture capital investors include Mangrove Capital, Northzone, and Eight Roads Ventures.') %></p>
                   </div>
               </div>
+              <div class="col-sm-8 col-md-6">
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://img.freepik.com/psd-gratis/maqueta-logo-elegante-papel-negro_1389-1355.jpg" alt="..." /></div>
+            </div>
           </div>
       </div>
   </header>

@@ -16,6 +16,7 @@ async post(req, res, next){
     
         //buscar usuario
         const usuario = await Usuario.findOne({email});
+
         //si no encuentro o pass dist
         if(!usuario || !(await usuario.comparePassword(password))){
             res.locals.error = res.__('Invalid credentials');

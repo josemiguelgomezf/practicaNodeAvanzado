@@ -1,4 +1,5 @@
 {
+	"1234": "1234",
 	"Features": "Características",
 	"Example conditionals": "Ejemplos condicionales",
 	"Login": "Iniciar Sesión",
@@ -9,5 +10,14 @@
 	"We will never share your email with anyone else.": "Nunca compartas tu email con nadie.",
 	"Private Zone": "Private Zone",
 	"Logout": "Logout",
-	"Private": "Private"
+	"Private": "Private",
+	"What are we?": "¿Quiénes somos?",
+	"Brand is a Spanish company founded in 2014 used to exchange used goods, similar to Craigslist as a classified listings website. The marketplace primarily is accessed via mobile app.": "Brand es una empresa española fundada en 2014 utilizada para intercambiar productos usados, similar a Craigslist como un sitio web de listados clasificados. Se accede principalmente al mercado a través de la aplicación móvil.",
+	"In 2014 it signed a commercial agreement with Atresmedia. In 2015 it was cited as the startup company with the highest revenues in Spain with $1b of transactions completed using the app.": "En 2014 firmó un acuerdo comercial con Atresmedia. En 2015 fue citada como la empresa emergente con mayores ingresos en España con $ 1b de transacciones completadas utilizando la aplicación.",
+	"In May 2016, the company was merged with Letgo but continues to trade under the Brand brand.": "En mayo de 2016, la empresa se fusionó con Letgo, pero continúa operando bajo la marca Brand.",
+	"Large venture capital investors include Mangrove Capital, Northzone, and Eight Roads Ventures.": "Los grandes inversores de capital de riesgo incluyen Mangrove Capital, Northzone y Eight Roads Ventures.",
+	"Despite the filters through which the objects put up for sale pass, there have been several cases of illegal products sold through this famous application, such as medicines, which has forced the Ministry of Health and the Agency Española del Medicamento warn of the danger that this entails and of the serious consequences to which they are exposed when selling between individuals.": "A pesar de los filtros por los cuales pasan los objetos que se ponen a la venta, se han producido varios casos de productos ilegales vendidos a través de esta famosa aplicación, como medicamentos, lo que ha obligado a que el Ministerio de Sanidad y la Agencia Española del Medicamento alerten del peligro que esto supone y de las graves consecuencias a las que se exponen al vender entre particulares.",
+	"Controversy": "Polémica",
+	"Brand have actually a lot of problems around ilegal products uploaded in the platform.": "La marca tiene muchos problemas con los productos ilegales subidos a la plataforma.",
+	"Ad list": "Listado de anuncios"
 }

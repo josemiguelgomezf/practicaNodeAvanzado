@@ -72,7 +72,7 @@ app.use((req, res, next) => {
  * Rutas de mi website
  */
 app.use('/',          require('./routes/index'));
-app.use('/features',  require('./routes/features'));
+app.use('/controversy',  require('./routes/controversy'));
 app.use('/change-locale',  require('./routes/change-locale'));
 app.get('/login', loginController.index);
 app.post('/login', loginController.post);
