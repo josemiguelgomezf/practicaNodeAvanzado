@@ -3,7 +3,11 @@
 const mongoose = require('mongoose');
 const fs = require('fs-extra')
 const path2 = require('path');
-const fsPromises = require('fs').promises
+const cote = require('cote')
+
+const thumbnailRequester = new cote.Requester({
+  name: 'thumbnail creator client'
+}, { log: false, statusLogsEnabled: false })
 
 // definir un esquema
 const agenteSchema = mongoose.Schema({
@@ -45,6 +49,7 @@ agenteSchema.methods.setFoto = async function ({ path, originalName }) {
   this.foto = originalName
 
   // Create thumbnail
+  thumbnailRequester.send({ type: 'createThumbnail', image: imagePublicPath })
 }
 
 // creo el modelo con ese esquema
