@@ -1,0 +1,14 @@
+[
+  {
+    "title": "BMW 4x4",
+    "sale": "Yes",
+    "price": 30382,
+    "foto": "bmw.jpeg"
+  },
+  {
+    "title": "PC 16Gb RAM",
+    "sale": "No",
+    "price": 404,
+    "foto": "pc.jpg"
+  }
+]
